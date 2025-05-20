@@ -1104,6 +1104,70 @@ static void PF_Find (void)
 	RETURN_EDICT(qcvm->edicts);
 }
 
+// entity (entity start, .float field, float match) findfloat = #0;
+static void PF_FindFloat (void)
+{
+	int		e;
+	int		f, s, t;
+	edict_t *ed;
+
+	e = G_EDICTNUM(OFS_PARM0);
+	f = G_INT(OFS_PARM1);
+	s = G_FLOAT(OFS_PARM2);
+	if (!s)
+		PR_RunError ("PF_FindFloat: bad search float");
+
+	for (e++ ; e < qcvm->num_edicts ; e++)
+	{
+		ed = EDICT_NUM(e);
+		if (ed->free)
+			continue;
+		t = E_FLOAT(ed,f);
+		if (!t)
+			continue;
+		if (t == s)
+		{
+			RETURN_EDICT(ed);
+			return;
+		}
+	}
+
+	RETURN_EDICT(qcvm->edicts);
+}
+
+// entity (entity start, .entity field, entity match) findentity = #0;
+static void PF_FindEntity (void)
+{
+	// KAYTODO: Untested
+	int		e;
+	int		f, s, t;
+	edict_t *ed;
+
+	e = G_EDICTNUM(OFS_PARM0);
+	f = G_INT(OFS_PARM1);
+	s = G_EDICTNUM(OFS_PARM2);
+
+	if (!s)
+		PR_RunError("PF_FindEntity: bad search entity");
+
+	for (e++ ; e < qcvm->num_edicts ; e++)
+	{
+		ed = EDICT_NUM(e);
+		if (ed->free)
+			continue;
+		t = E_INT(ed, f);
+		if (!t)
+			continue;
+		if (G_EDICTNUM(t) == s)
+		{
+			RETURN_EDICT(ed);
+			return;
+		}
+	}
+
+	RETURN_EDICT (qcvm->edicts);
+}
+
 static void PR_CheckEmptyString (const char *s)
 {
 	if (s[0] <= ' ')
@@ -3375,6 +3439,9 @@ builtindef_t pr_builtindefs[] =
 	{"bound",					PF_BOTH(PF_bound),				96,		DP_QC_MINMAXBOUND},	// float(float minimum, float val, float maximum)
 
 	{"pow",						PF_BOTH(PF_pow),				97,		DP_QC_SINCOSSQRTPOW},	// float(float value, float exp)
+
+	{"findfloat",				PF_SSQC (PF_FindFloat),			0,		DP_QC_FINDFLOAT}, // entity(entity start, .float fld, float match) findfloat	= #98
+	{"findentity",				PF_SSQC (PF_FindEntity),		0,		DP_QC_FINDFLOAT}, // entity(entity start, .entity fld, entity match) findentity	= #98
 
 	{"checkextension",			PF_BOTH(PF_checkextension),		99},	// float(string extname)
 

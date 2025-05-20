@@ -539,12 +539,14 @@ static void Host_Maps_f (void)
 //johnfitz -- modlist management
 //==============================================================================
 
-#define DEFAULT_ADDON_SERVER		"https://kexquake.s3.amazonaws.com"
+#define DEFAULT_ADDON_SERVER		"" // KAY: Removed link to addon server https://kexquake.s3.amazonaws.com, maybe in the future will have one of my own :)
 #define ADDON_MANIFEST_FILE			"content.json"
 #define MANIFEST_RETENTION			(24 * 60 * 60)
 
 static const char *const knownmods[][2] =
 {
+	{"kay1", "Kay Game"},
+/*
 	{"id1",			"Quake"},
 	{"hipnotic",	"Scourge of Armagon"},
 	{"rogue",		"Dissolution of Eternity"},
@@ -554,6 +556,7 @@ static const char *const knownmods[][2] =
 	{"ctf",			"Capture The Flag"},
 	{"udob",		"Underdark Overbright"},
 	{"ad",			"Arcane Dimensions"},
+*/
 };
 
 typedef struct download_s

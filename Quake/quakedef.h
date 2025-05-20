@@ -47,6 +47,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define IRONWAIL_VER_SUFFIX		"-dev"	// optional version suffix string literal like "-beta1"
 #endif
 
+// KAYTODO go ahead and add in versions for myself
+
 #define	QS_STRINGIFY_(x)	#x
 #define	QS_STRINGIFY(x)	QS_STRINGIFY_(x)
 
@@ -57,6 +59,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // SDL version the code was compiled with
 #define Q_SDL_COMPILED_VERSION_STRING	QS_STRINGIFY(SDL_MAJOR_VERSION) "." QS_STRINGIFY(SDL_MINOR_VERSION) "." QS_STRINGIFY(SDL_PATCHLEVEL)
 
+// KAYTODO these are the main things I wanna change
 #define CONSOLE_TITLE_STRING	"Ironwail " IRONWAIL_VER_STRING
 #define WINDOW_TITLE_STRING		"Quake/Ironwail " IRONWAIL_VER_STRING
 #define CONFIG_NAME				"ironwail.cfg"
@@ -68,7 +71,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 //define	PARANOID			// speed sapping error checking
 
-#define	GAMENAME	"id1"		// directory to look in by default
+#define	GAMENAME	"kay1"		// directory to look in by default
 
 #ifndef RC_INVOKED // skip the rest of the file when compiling resources
 #include "q_stdinc.h"

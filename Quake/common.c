@@ -3023,6 +3023,7 @@ static void COM_InitBaseDir (void)
 		return;
 	}
 
+/*
 	// skip default basedir if a store version is requested explicitly
 	steam = COM_CheckParm ("-steam");
 	if (steam)
@@ -3035,6 +3036,7 @@ static void COM_InitBaseDir (void)
 		egs = COM_CheckParm ("-epic");
 	if (egs)
 		goto try_egs;
+*/
 
 	// try current working directory, then its ancestors (in case the executable is in its own subdirectory)
 	if (COM_SetBaseDir (host_parms->basedir))
@@ -3049,6 +3051,7 @@ static void COM_InitBaseDir (void)
 		return;
 	}
 
+/*
 	if (!COM_CheckParm ("-nosteam"))
 	{
 	try_steam:
@@ -3157,6 +3160,7 @@ storesetup:
 		Sys_Error ("Couldn't find GOG Quake");
 	if (egs)
 		Sys_Error ("Couldn't find Epic Games Store Quake");
+	*/
 
 	Sys_Error (
 		"Couldn't determine where Quake is installed.\n"

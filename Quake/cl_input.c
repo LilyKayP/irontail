@@ -426,6 +426,8 @@ void CL_SendMove (const usercmd_t *cmd)
 			bits |= 2;
 		in_jump.state &= ~2;
 
+		// KAYTODO I think we can include another bit in here for +use?
+
 		MSG_WriteByte (&buf, bits);
 
 		MSG_WriteByte (&buf, in_impulse);

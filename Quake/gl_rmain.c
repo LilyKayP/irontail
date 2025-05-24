@@ -109,8 +109,8 @@ cvar_t	r_showfields = {"r_showfields", "0", CVAR_NONE};
 cvar_t	r_showfields_align = {"r_showfields_align", "1", CVAR_ARCHIVE}; // 0=entity pos; 1=bottom-right
 cvar_t	r_lerpmodels = {"r_lerpmodels", "1", CVAR_ARCHIVE};
 cvar_t	r_lerpmove = {"r_lerpmove", "1", CVAR_ARCHIVE};
-cvar_t	r_nolerp_list = {"r_nolerp_list", "progs/flame.mdl,progs/flame2.mdl,progs/braztall.mdl,progs/brazshrt.mdl,progs/longtrch.mdl,progs/flame_pyre.mdl,progs/v_saw.mdl,progs/v_xfist.mdl,progs/h2stuff/newfire.mdl", CVAR_NONE};
-cvar_t	r_noshadow_list = {"r_noshadow_list", "progs/flame2.mdl,progs/flame.mdl,progs/bolt1.mdl,progs/bolt2.mdl,progs/bolt3.mdl,progs/laser.mdl", CVAR_NONE};
+cvar_t	r_nolerp_list = {"r_nolerp_list", "mdls/flame.mdl,mdls/flame2.mdl,mdls/braztall.mdl,mdls/brazshrt.mdl,mdls/longtrch.mdl,mdls/flame_pyre.mdl,mdls/v_saw.mdl,mdls/v_xfist.mdl,mdls/h2stuff/newfire.mdl", CVAR_NONE};
+cvar_t	r_noshadow_list = {"r_noshadow_list", "mdls/flame2.mdl,mdls/flame.mdl,mdls/bolt1.mdl,mdls/bolt2.mdl,mdls/bolt3.mdl,mdls/laser.mdl", CVAR_NONE};
 
 extern cvar_t	r_vfog;
 extern cvar_t	vid_fsaa;

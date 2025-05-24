@@ -406,7 +406,7 @@ void R_FlushAliasInstances (qboolean showtris)
 		textures[0] = hdr->gltextures[skinnum][anim];
 		textures[1] = hdr->fbtextures[skinnum][anim];
 		if (hdr == mainhdr && ibuf.ent->colormap != vid.colormap && !gl_nocolors.value)
-			if (CL_IsPlayerEnt (ibuf.ent)) /* && !strcmp (ibuf.ent->model->name, "progs/player.mdl") */
+			if (CL_IsPlayerEnt (ibuf.ent)) /* && !strcmp (ibuf.ent->model->name, "mdls/player.mdl") */
 				textures[0] = playertextures[ibuf.ent - cl_entities - 1];
 
 		if (!gl_fullbrights.value)

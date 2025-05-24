@@ -3177,9 +3177,9 @@ void Mod_SetExtraFlags (qmodel_t *mod)
 		mod->flags |= MOD_NOSHADOW;
 
 	// fullbright hack (TODO: make this a cvar list)
-	if (!strcmp (mod->name, "progs/flame2.mdl") ||
-		!strcmp (mod->name, "progs/flame.mdl") ||
-		!strcmp (mod->name, "progs/boss.mdl"))
+	if (!strcmp (mod->name, "mdls/flame2.mdl") ||
+		!strcmp (mod->name, "mdls/flame.mdl") ||
+		!strcmp (mod->name, "mdls/boss.mdl"))
 	{
 		mod->flags |= MOD_FBRIGHTHACK;
 	}
@@ -4182,7 +4182,7 @@ static void Mod_LoadMD5MeshModel (qmodel_t *mod, const char *buffer)
 			int mark = Hunk_LowMark ();
 			for (f = 0; f < countof(surf->gltextures[0]); f++)
 			{
-				q_snprintf(texname, sizeof(texname), "progs/%s_%02u_%02u", com_token, surf->numskins, f);
+				q_snprintf(texname, sizeof(texname), "mdls/%s_%02u_%02u", com_token, surf->numskins, f);
 
 				data = Image_LoadImage (texname, (int*)&fwidth, (int*)&fheight, &fmt);
 				//now load whatever we found
@@ -4199,12 +4199,12 @@ static void Mod_LoadMD5MeshModel (qmodel_t *mod, const char *buffer)
 					{	//we found a 32bit base texture.
 						if (!surf->fbtextures[surf->numskins][f])
 						{
-							q_snprintf(texname, sizeof(texname), "progs/%s_%02u_%02u_glow", com_token, surf->numskins, f);
+							q_snprintf(texname, sizeof(texname), "mdls/%s_%02u_%02u_glow", com_token, surf->numskins, f);
 							surf->fbtextures[surf->numskins][f] = TexMgr_LoadImage(mod, texname, surf->skinwidth, surf->skinheight, SRC_RGBA, NULL, texname, 0, TEXPREF_MIPMAP);
 						}
 						if (!surf->fbtextures[surf->numskins][f])
 						{
-							q_snprintf(texname, sizeof(texname), "progs/%s_%02u_%02u_luma", com_token, surf->numskins, f);
+							q_snprintf(texname, sizeof(texname), "mdls/%s_%02u_%02u_luma", com_token, surf->numskins, f);
 							surf->fbtextures[surf->numskins][f] = TexMgr_LoadImage(mod, texname, surf->skinwidth, surf->skinheight, SRC_RGBA, NULL, texname, 0, TEXPREF_MIPMAP);
 						}
 					}
@@ -4225,7 +4225,7 @@ static void Mod_LoadMD5MeshModel (qmodel_t *mod, const char *buffer)
 				surf->fbtextures[surf->numskins][1] = surf->fbtextures[surf->numskins][0];
 			}
 			if (f == 3)
-				Con_Warning("progs/%s_%02u_##: 3 skinframes found...\n", com_token, surf->numskins);
+				Con_Warning("mdls/%s_%02u_##: 3 skinframes found...\n", com_token, surf->numskins);
 			if (f < 4)
 			{
 				surf->gltextures[surf->numskins][3] = surf->gltextures[surf->numskins][1];

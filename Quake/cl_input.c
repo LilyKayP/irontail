@@ -55,7 +55,7 @@ state bit 2 is edge triggered on the down to up transition
 kbutton_t	in_mlook, in_klook;
 kbutton_t	in_left, in_right, in_forward, in_back;
 kbutton_t	in_lookup, in_lookdown, in_moveleft, in_moveright;
-kbutton_t	in_strafe, in_speed, in_use, in_jump, in_attack;
+kbutton_t	in_strafe, in_speed, in_use, in_jump, in_attack, in_altattack;
 kbutton_t	in_up, in_down;
 
 int			in_impulse;
@@ -169,6 +169,9 @@ void IN_StrafeUp(void) {KeyUp(&in_strafe);}
 
 void IN_AttackDown(void) {KeyDown(&in_attack);}
 void IN_AttackUp(void) {KeyUp(&in_attack);}
+
+void IN_AltAttackDown (void) { KeyDown (&in_altattack); }
+void IN_AltAttackUp (void) { KeyUp (&in_altattack); }
 
 void IN_UseDown (void) {KeyDown(&in_use);}
 void IN_UseUp (void) {KeyUp(&in_use);}
@@ -426,6 +429,11 @@ void CL_SendMove (const usercmd_t *cmd)
 			bits |= 2;
 		in_jump.state &= ~2;
 
+		// KAY added bit for +altattack
+		if (in_altattack.state & 3)
+			bits |= 4;
+		in_altattack.state &= ~2;
+
 		// KAYTODO I think we can include another bit in here for +use?
 
 		MSG_WriteByte (&buf, bits);
@@ -487,6 +495,8 @@ void CL_InitInput (void)
 	Cmd_AddCommand ("-speed", IN_SpeedUp);
 	Cmd_AddCommand ("+attack", IN_AttackDown);
 	Cmd_AddCommand ("-attack", IN_AttackUp);
+	Cmd_AddCommand ("+altattack", IN_AltAttackDown);
+	Cmd_AddCommand ("-altattack", IN_AltAttackUp);
 	Cmd_AddCommand ("+use", IN_UseDown);
 	Cmd_AddCommand ("-use", IN_UseUp);
 	Cmd_AddCommand ("+jump", IN_JumpDown);

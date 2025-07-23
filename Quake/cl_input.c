@@ -434,7 +434,10 @@ void CL_SendMove (const usercmd_t *cmd)
 			bits |= 4;
 		in_altattack.state &= ~2;
 
-		// KAYTODO I think we can include another bit in here for +use?
+		// KAY added bit (and button3) for +use
+		if (in_use.state & 3)
+			bits |= 8;
+		in_use.state &= ~2;
 
 		MSG_WriteByte (&buf, bits);
 

@@ -4951,6 +4951,7 @@ static const menukeybind_t menubinds[] =
 	{"",				"",						KDM_ANY},
 	{"+attack",			"Attack",				KDM_ANY},
 	{"+altattack",		"Alt Attack",			KDM_ANY},
+	{"+use",			"Use",					KDM_ANY},
 	{"impulse 10",		"Next weapon",			KDM_ANY},
 	{"impulse 12",		"Previous weapon",		KDM_ANY},
 	{"impulse 1",		"Axe",					KDM_ANY},

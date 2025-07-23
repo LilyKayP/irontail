@@ -105,6 +105,7 @@ typedef struct
 	float	button0;
 	float	button1;
 	float	button2;
+	float	button3;
 	float	impulse;
 	float	fixangle;
 	vec3_t	v_angle;
@@ -140,4 +141,4 @@ typedef struct
 	string_t	noise3;
 } entvars_t;
 
-#define PROGHEADER_CRC 5927
+#define PROGHEADER_CRC 57258

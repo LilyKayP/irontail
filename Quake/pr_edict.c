@@ -2127,7 +2127,7 @@ qboolean PR_LoadProgs (const char *filename, qboolean fatal)
 	if (qcvm->progs->crc != PROGHEADER_CRC)
 	{
 		if (fatal)
-			Host_Error ("%s system vars have been modified, progdefs.h is out of date", filename);
+			Host_Error ("%s system vars have been modified, progdefs.h is out of date with CRC of %i", filename, qcvm->progs->crc);
 		else
 		{
 			switch(qcvm->progs->crc)
@@ -2152,7 +2152,10 @@ qboolean PR_LoadProgs (const char *filename, qboolean fatal)
 			case 14046: //hexen2 demo
 				Con_Printf("%s - hexen2 gamecode is not supported\n", filename);
 				break;
-			//case 5927: //nq PROGHEADER_CRC as above. shouldn't happen, obviously.
+			case 5927:
+				Con_Printf ("%s - quake gamecode is not supported\n", filename);
+				break;
+			//case 57258: //KAY PROGHEADER_CRC as above. shouldn't happen, obviously.
 			default:
 				Con_Printf("%s system vars are not supported\n", filename);
 				break;

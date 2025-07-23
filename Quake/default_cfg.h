@@ -75,11 +75,11 @@ static const char default_cfg[] =
 "bind INS +klook\n"
 
 "bind MOUSE1 +attack\n"
-"bind MOUSE2 +jump\n"
+"bind MOUSE2 +altattack\n"
 
 "bind LSHOULDER \"impulse 12\"\n"
 "bind RSHOULDER \"impulse 10\"\n"
-"bind LTRIGGER +jump\n"
+"bind LTRIGGER +altattack\n"
 "bind RTRIGGER +attack\n"
 
 "gamma 0.95\n"
